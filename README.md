@@ -73,7 +73,7 @@ npm run build
 git clone https://github.com/10ndai/10ndai.github.io.git
 
 # Navigate to the project directory
-cd tendai.github.io
+cd 10ndai.github.io
 
 # Install dependencies
 npm install
