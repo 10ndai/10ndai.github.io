@@ -2,11 +2,11 @@
 
 A modern, responsive portfolio website for a Big Data Analyst transitioning to Data Engineering.
 
-## 🚀 Live Demo
+##  Live Demo
 
-Visit the live site: [https://yourusername.github.io/tendai.github.io](https://yourusername.github.io/tendai.github.io)
+Visit the live site: [https://10ndai.github.io](https://10ndai.github.io)
 
-## 🛠️ Built With
+##  Built With
 
 - **Next.js 14** - React framework with App Router
 - **TypeScript** - Type safety and better development experience
@@ -14,7 +14,7 @@ Visit the live site: [https://yourusername.github.io/tendai.github.io](https://y
 - **Lucide React** - Beautiful icons
 - **GitHub Pages** - Static site hosting
 
-## 📱 Features
+##  Features
 
 - **Responsive Design** - Works perfectly on all devices
 - **Smooth Animations** - Subtle fade-in effects and transitions
@@ -23,7 +23,7 @@ Visit the live site: [https://yourusername.github.io/tendai.github.io](https://y
 - **Contact Form** - Functional contact form with validation
 - **Professional Timeline** - Work experience and education history
 
-## 🎨 Sections
+##  Sections
 
 1. **Hero** - Introduction with call-to-action
 2. **About** - Personal bio and key highlights
@@ -32,7 +32,7 @@ Visit the live site: [https://yourusername.github.io/tendai.github.io](https://y
 5. **Resume** - Professional timeline
 6. **Contact** - Contact form and social links
 
-## 🚀 Deployment to GitHub Pages
+##  Deployment to GitHub Pages
 
 This site is configured for automatic deployment to GitHub Pages using GitHub Actions.
 
@@ -66,11 +66,11 @@ npm run build
 # Upload the contents of 'out' to your GitHub Pages repository
 \`\`\`
 
-## 🔧 Local Development
+##  Local Development
 
 \`\`\`bash
 # Clone the repository
-git clone https://github.com/yourusername/tendai.github.io.git
+git clone https://github.com/10ndai/10ndai.github.io.git
 
 # Navigate to the project directory
 cd tendai.github.io
@@ -84,7 +84,7 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-## 📝 Customization
+##  Customization
 
 ### Personal Information
 - Update personal details in each component
@@ -104,16 +104,16 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 - Colors are defined in `app/globals.css`
 - The design uses a green color palette that can be customized
 
-## 📄 License
+##  License
 
 This project is open source and available under the [MIT License](LICENSE).
 
-## 🤝 Contributing
+##  Contributing
 
 Contributions, issues, and feature requests are welcome!
 
 ## 📞 Contact
 
-Tendai - [LinkedIn](https://linkedin.com) - tendai@example.com
+Tendai - [LinkedIn](https://linkedin.com/in/tendai-d-512505257)
 
-Project Link: [https://github.com/yourusername/tendai.github.io](https://github.com/yourusername/tendai.github.io)
+Project Link: [https://github.com/10ndai/10ndai.github.io](https://github.com/yourusername/10ndai.github.io)
