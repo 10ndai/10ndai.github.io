@@ -12,14 +12,14 @@ interface Project {
 }
 
 const projects: Project[] = [
-  {
+  /*{
     fig: "fig. 01",
     title: "IndabaX Zimbabwe Hackathon",
     description:
       "Loan default prediction using XGBoost and LightGBM, surfaced through a Next.js dashboard designed for loan officers; entered for IndabaX Zimbabwe's innovation prize.",
     stack: "Python · XGBoost · LightGBM · Next.js · TypeScript",
     repoUrl: "#", // TODO: add real GitHub repository URL
-  },
+  },*/
   {
     fig: "fig. 02",
     title: "End-to-End MLOps Pipeline",
@@ -42,7 +42,7 @@ const projects: Project[] = [
     description:
       "Chest X-ray classifier for pneumonia detection, built in collaboration with Sawera using transfer learning on public clinical datasets.",
     stack: "Python · TensorFlow · CNN · transfer learning",
-    repoUrl: "#", // TODO: add real GitHub repository URL
+    repoUrl: "#https://github.com/10ndai/pneumonia-detector.git", // TODO: add real GitHub repository URL
   },
   {
     fig: "fig. 05",
@@ -58,7 +58,7 @@ const projects: Project[] = [
     description:
       "Point-of-sale and inventory tool for small retailers, built to work in low-connectivity environments common in informal Zimbabwean commerce.",
     stack: "TypeScript", // TODO: confirm full stack
-    repoUrl: "#", // TODO: add real GitHub repository URL
+    repoUrl: "#https://github.com/10ndai/CounterStock", // TODO: add real GitHub repository URL
   },
 ]
 
