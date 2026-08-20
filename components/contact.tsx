@@ -42,7 +42,7 @@ export default function Contact() {
               <div className="space-y-5">
                 {/* TODO: replace with real LinkedIn profile URL */}
                 <a
-                  href="www.linkedin.com/in/tendai-d-512505257"
+                  href="https://www.linkedin.com/in/tendai-d-512505257"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 font-mono text-sm text-ink"
