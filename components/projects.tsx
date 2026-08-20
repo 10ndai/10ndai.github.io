@@ -1,136 +1,127 @@
 "use client"
 
-import { useEffect, useState } from "react"
-import Image from "next/image"
-import { ExternalLink, Github } from "lucide-react"
+import { useEffect, useRef, useState } from "react"
+import { Github } from "lucide-react"
 
 interface Project {
+  fig: string
   title: string
   description: string
-  image: string
-  tags: string[]
-  liveLink?: string
-  githubLink?: string
+  stack: string
+  repoUrl: string
 }
 
-export default function Projects() {
-  const [isVisible, setIsVisible] = useState(false)
+const projects: Project[] = [
+  {
+    fig: "fig. 01",
+    title: "IndabaX Zimbabwe Hackathon",
+    description:
+      "Loan default prediction using XGBoost and LightGBM, surfaced through a Next.js dashboard designed for loan officers; entered for IndabaX Zimbabwe's innovation prize.",
+    stack: "Python · XGBoost · LightGBM · Next.js · TypeScript",
+    repoUrl: "#", // TODO: add real GitHub repository URL
+  },
+  {
+    fig: "fig. 02",
+    title: "End-to-End MLOps Pipeline",
+    description:
+      "Production-grade pipeline on AWS — model training, deployment, and monitoring — built over four weeks on the UCI hospital readmission dataset.",
+    stack: "Python · AWS · MLflow · Airflow · Docker",
+    repoUrl: "#", // TODO: add real GitHub repository URL
+  },
+  {
+    fig: "fig. 03",
+    title: "FIFA World Cup Prediction Model",
+    description:
+      "Tournament outcome model combining Dixon-Coles attack/defence ratings with Monte Carlo simulation to forecast match and bracket results.",
+    stack: "Python · SciPy · Monte Carlo simulation",
+    repoUrl: "#https://github.com/10ndai/fifa-world-cup-forecast", // TODO: add real GitHub repository URL
+  },
+  {
+    fig: "fig. 04",
+    title: "Pneumonia Detector",
+    description:
+      "Chest X-ray classifier for pneumonia detection, built in collaboration with Sawera using transfer learning on public clinical datasets.",
+    stack: "Python · TensorFlow · CNN · transfer learning",
+    repoUrl: "#", // TODO: add real GitHub repository URL
+  },
+  {
+    fig: "fig. 05",
+    title: "TheraPulse",
+    description:
+      "Concept Digital Platform for Mental Health Clinical Practice ",
+    stack: "React Native · TypeScript",
+    repoUrl: "#", // TODO: add real GitHub repository URL
+  },
+  {
+    fig: "fig. 06",
+    title: "CountaStock",
+    description:
+      "Point-of-sale and inventory tool for small retailers, built to work in low-connectivity environments common in informal Zimbabwean commerce.",
+    stack: "TypeScript", // TODO: confirm full stack
+    repoUrl: "#", // TODO: add real GitHub repository URL
+  },
+]
 
-  const projects: Project[] = [
-    {
-      title: "Real-time Data Pipeline",
-      description:
-        "Built a real-time data processing pipeline using Kafka and Spark Streaming to analyze user behavior data for an e-commerce platform.",
-      image:
-        "/placeholder.svg?height=400&width=600&text=Data+Pipeline+Architecture+with+Kafka+and+Spark+streaming+real-time+data+flow+diagrams",
-      tags: ["Kafka", "Spark", "Python", "AWS"],
-      githubLink: "https://github.com",
-    },
-    {
-      title: "Interactive Dashboard",
-      description:
-        "Created an interactive dashboard with Plotly and Dash to visualize sales performance metrics across different regions and product categories.",
-      image:
-        "/placeholder.svg?height=400&width=600&text=Interactive+Business+Dashboard+with+Charts+Graphs+KPI+Metrics+Analytics+Visualization",
-      tags: ["Plotly", "Dash", "Python", "SQL"],
-      liveLink: "https://example.com",
-      githubLink: "https://github.com",
-    },
-    {
-      title: "ETL Pipeline with Airflow",
-      description:
-        "Designed and implemented an ETL pipeline using Airflow and BigQuery to process and analyze large datasets from multiple sources.",
-      image:
-        "/placeholder.svg?height=400&width=600&text=ETL+Data+Pipeline+Workflow+with+Airflow+DAG+BigQuery+Data+Processing+Architecture",
-      tags: ["Airflow", "BigQuery", "Python", "GCP"],
-      githubLink: "https://github.com",
-    },
-    {
-      title: "Data Warehouse Optimization",
-      description:
-        "Optimized a data warehouse structure and queries, resulting in a 40% improvement in query performance and reduced storage costs.",
-      image:
-        "/placeholder.svg?height=400&width=600&text=Data+Warehouse+Architecture+Database+Optimization+Performance+Analytics+Cloud+Storage",
-      tags: ["SQL", "Snowflake", "dbt", "Performance Tuning"],
-      liveLink: "https://example.com",
-    },
-  ]
+export default function Projects() {
+  const ref = useRef<HTMLElement>(null)
+  const [visible, setVisible] = useState(false)
 
   useEffect(() => {
+    const el = ref.current
+    if (!el) return
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setIsVisible(true)
+          setVisible(true)
           observer.disconnect()
         }
       },
-      { threshold: 0.1 },
+      { threshold: 0.05 },
     )
-
-    const section = document.getElementById("projects")
-    if (section) observer.observe(section)
-
-    return () => {
-      if (section) observer.unobserve(section)
-    }
+    observer.observe(el)
+    return () => observer.disconnect()
   }, [])
 
   return (
-    <section id="projects" className="bg-white py-20">
-      <div className="container">
-        <h2 className="section-title">Projects</h2>
+    <section ref={ref} id="projects" className="bg-paper py-20 md:py-28 border-t border-rule">
+      <div className="max-w-5xl mx-auto px-6">
+        <div className={`reveal ${visible ? "visible" : ""}`}>
+          {/* Section header */}
+          <div className="md:grid md:grid-cols-[5rem_1fr] md:gap-x-8 items-start mb-14">
+            <p className="font-mono text-xs text-verdigris mb-4 md:mb-0 md:pt-2">projects</p>
+            <h2 className="font-display text-3xl md:text-4xl font-medium text-ink">Selected work</h2>
+          </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {projects.map((project, index) => (
-            <div
-              key={project.title}
-              className={`bg-cream/10 rounded-lg overflow-hidden shadow-md transition-transform hover:-translate-y-1 hover:shadow-lg ${
-                isVisible ? "animate-fade-in" : "opacity-0"
-              }`}
-              style={{ animationDelay: `${index * 150}ms` }}
-            >
-              <div className="relative h-48">
-                <Image src={project.image || "/placeholder.svg"} alt={project.title} fill className="object-cover" />
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold mb-2">{project.title}</h3>
-                <p className="text-text mb-4">{project.description}</p>
+          {/* Annotated project index */}
+          <div className="divide-y divide-rule">
+            {projects.map((project) => (
+              <div
+                key={project.fig}
+                className="py-10 md:grid md:grid-cols-[5rem_1fr] md:gap-x-8"
+              >
+                {/* Marginalia label — footnote convention */}
+                <p className="font-mono text-xs text-verdigris mb-4 md:mb-0 md:pt-1 md:text-right">
+                  {project.fig}
+                </p>
 
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {project.tags.map((tag) => (
-                    <span key={tag} className="bg-primary/10 text-primary px-2 py-1 rounded-full text-xs font-medium">
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-
-                <div className="flex gap-4">
-                  {project.githubLink && (
-                    <a
-                      href={project.githubLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center text-text hover:text-primary transition-colors"
-                    >
-                      <Github className="h-5 w-5 mr-1" />
-                      <span>Code</span>
-                    </a>
-                  )}
-                  {project.liveLink && (
-                    <a
-                      href={project.liveLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center text-text hover:text-primary transition-colors"
-                    >
-                      <ExternalLink className="h-5 w-5 mr-1" />
-                      <span>Live Demo</span>
-                    </a>
-                  )}
+                {/* Entry content */}
+                <div>
+                  <h3 className="font-display text-xl font-medium text-ink mb-3">{project.title}</h3>
+                  <p className="font-body text-sm md:text-base text-ink/75 leading-relaxed mb-4">
+                    {project.description}
+                  </p>
+                  <p className="font-mono text-xs text-verdigris mb-5">stack — {project.stack}</p>
+                  <a
+                    href={project.repoUrl}
+                    className="inline-flex items-center gap-1.5 font-mono text-xs text-oxblood group"
+                  >
+                    <Github className="h-3.5 w-3.5" />
+                    <span className="link-draw">view code →</span>
+                  </a>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>

@@ -4,114 +4,89 @@
 
 @layer base {
   :root {
-    --primary: 35 108 58;
-    --accent: 76 175 80;
-    --background: 247 247 247;
-    --dark: 18 30 22;
-    --text: 68 68 68;
-    --cream: 240 234 214;
-  }
-}
+    --ink: #1C1F26;
+    --paper: #EDEAE2;
+    --oxblood: #7A2E2E;
+    --verdigris: #5C6B5D;
+    --rule: #A8A296;
 
-@layer base {
+    /* shadcn/ui compat — referenced by ui/* components */
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+    --primary: 0 0% 9%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+    --accent: 0 0% 96.1%;
+    --accent-foreground: 0 0% 9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 0 0% 3.9%;
+    --radius: 0.5rem;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
-    @apply bg-background text-text;
+    font-family: var(--font-public-sans), system-ui, sans-serif;
+    background-color: #EDEAE2;
+    color: #1C1F26;
+    -webkit-font-smoothing: antialiased;
   }
 
   h1,
   h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    @apply font-bold text-dark;
-  }
-
-  h1 {
-    @apply text-4xl md:text-5xl lg:text-6xl;
-  }
-
-  h2 {
-    @apply text-3xl md:text-4xl;
-  }
-
   h3 {
-    @apply text-2xl md:text-3xl;
+    font-family: var(--font-fraunces), Georgia, serif;
+    font-weight: 500;
+    color: #1C1F26;
   }
 
-  section {
-    @apply py-16 md:py-24;
-  }
-}
-
-@layer components {
-  .container {
-    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
-  }
-
-  .btn {
-    @apply inline-flex items-center justify-center rounded-md px-5 py-2.5 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50;
-  }
-
-  .btn-primary {
-    @apply bg-primary text-white hover:bg-primary/90 focus-visible:ring-primary;
-  }
-
-  .btn-outline {
-    @apply border border-primary text-primary hover:bg-primary/10 focus-visible:ring-primary;
-  }
-
-  .section-title {
-    @apply text-3xl md:text-4xl font-bold mb-8 text-dark relative inline-block;
-  }
-
-  .section-title::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 50%;
-    height: 4px;
-    background-color: rgb(76 175 80);
-  }
-
-  .skill-bar {
-    @apply h-2 bg-cream rounded-full overflow-hidden relative;
-  }
-
-  .skill-progress {
-    @apply h-full bg-accent absolute left-0 top-0 transition-all duration-1000 ease-out;
+  :focus-visible {
+    outline: 2px solid #7A2E2E;
+    outline-offset: 3px;
   }
 }
 
-/* Animations */
-@keyframes fadeIn {
-  from {
+/* Scroll reveal — disabled when user prefers reduced motion */
+@media (prefers-reduced-motion: no-preference) {
+  .reveal {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(12px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
   }
-  to {
+  .reveal.visible {
     opacity: 1;
     transform: translateY(0);
   }
 }
 
-.animate-fade-in {
-  animation: fadeIn 0.6s ease-out forwards;
+/* Underline draw on link hover */
+.link-draw {
+  position: relative;
+  text-decoration: none;
 }
-
-.animate-delay-100 {
-  animation-delay: 100ms;
+.link-draw::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: #7A2E2E;
+  transition: width 0.2s ease-out;
 }
-.animate-delay-200 {
-  animation-delay: 200ms;
-}
-.animate-delay-300 {
-  animation-delay: 300ms;
-}
-.animate-delay-400 {
-  animation-delay: 400ms;
-}
-.animate-delay-500 {
-  animation-delay: 500ms;
+.link-draw:hover::after,
+.link-draw:focus-visible::after {
+  width: 100%;
 }

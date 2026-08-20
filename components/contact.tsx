@@ -1,182 +1,63 @@
 "use client"
 
-import type React from "react"
-
-import { useState, useEffect } from "react"
-import { Send, Linkedin, Github, Mail } from "lucide-react"
+import { useEffect, useRef, useState } from "react"
+import { Github, Linkedin } from "lucide-react"
 
 export default function Contact() {
-  const [isVisible, setIsVisible] = useState(false)
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  })
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [submitMessage, setSubmitMessage] = useState("")
+  const ref = useRef<HTMLElement>(null)
+  const [visible, setVisible] = useState(false)
 
   useEffect(() => {
+    const el = ref.current
+    if (!el) return
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setIsVisible(true)
+          setVisible(true)
           observer.disconnect()
         }
       },
       { threshold: 0.1 },
     )
-
-    const section = document.getElementById("contact")
-    if (section) observer.observe(section)
-
-    return () => {
-      if (section) observer.unobserve(section)
-    }
+    observer.observe(el)
+    return () => observer.disconnect()
   }, [])
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target
-    setFormData((prev) => ({ ...prev, [name]: value }))
-  }
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setIsSubmitting(true)
-
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1000))
-
-    setSubmitMessage("Thank you! Your message has been sent.")
-    setFormData({ name: "", email: "", message: "" })
-    setIsSubmitting(false)
-
-    // Clear success message after 5 seconds
-    setTimeout(() => {
-      setSubmitMessage("")
-    }, 5000)
-  }
-
   return (
-    <section id="contact" className="bg-white py-20">
-      <div className="container">
-        <h2 className="section-title">Contact Me</h2>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-          <div className={`${isVisible ? "animate-fade-in" : "opacity-0"}`}>
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div>
-                <label htmlFor="name" className="block text-sm font-medium mb-2">
-                  Name
-                </label>
-                <input
-                  id="name"
-                  name="name"
-                  type="text"
-                  required
-                  value={formData.name}
-                  onChange={handleChange}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
-                />
-              </div>
-
-              <div>
-                <label htmlFor="email" className="block text-sm font-medium mb-2">
-                  Email
-                </label>
-                <input
-                  id="email"
-                  name="email"
-                  type="email"
-                  required
-                  value={formData.email}
-                  onChange={handleChange}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
-                />
-              </div>
-
-              <div>
-                <label htmlFor="message" className="block text-sm font-medium mb-2">
-                  Message
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  rows={5}
-                  required
-                  value={formData.message}
-                  onChange={handleChange}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
-                />
-              </div>
-
-              <button type="submit" disabled={isSubmitting} className="btn btn-primary w-full">
-                {isSubmitting ? (
-                  <span className="flex items-center justify-center">
-                    <svg
-                      className="animate-spin -ml-1 mr-2 h-4 w-4 text-white"
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                    >
-                      <circle
-                        className="opacity-25"
-                        cx="12"
-                        cy="12"
-                        r="10"
-                        stroke="currentColor"
-                        strokeWidth="4"
-                      ></circle>
-                      <path
-                        className="opacity-75"
-                        fill="currentColor"
-                        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                      ></path>
-                    </svg>
-                    Sending...
-                  </span>
-                ) : (
-                  <span className="flex items-center justify-center">
-                    <Send className="mr-2 h-4 w-4" />
-                    Send Message
-                  </span>
-                )}
-              </button>
-
-              {submitMessage && <div className="text-center text-green-600 font-medium">{submitMessage}</div>}
-            </form>
+    <section ref={ref} id="contact" className="bg-paper py-20 md:py-28 border-t border-rule">
+      <div className="max-w-5xl mx-auto px-6">
+        <div className={`reveal ${visible ? "visible" : ""}`}>
+          {/* Section header */}
+          <div className="md:grid md:grid-cols-[5rem_1fr] md:gap-x-8 items-start mb-14">
+            <p className="font-mono text-xs text-verdigris mb-4 md:mb-0 md:pt-2">contact</p>
+            <h2 className="font-display text-3xl md:text-4xl font-medium text-ink">Get in touch</h2>
           </div>
 
-          <div className={`${isVisible ? "animate-fade-in animate-delay-200" : "opacity-0"}`}>
-            <div className="bg-cream/30 p-8 rounded-lg">
-              <h3 className="text-2xl font-bold mb-6">Connect With Me</h3>
-
-              <div className="space-y-6">
+          <div className="md:grid md:grid-cols-[5rem_1fr] md:gap-x-8">
+            <div />
+            <div className="max-w-lg">
+              <p className="font-body text-base text-ink/75 leading-relaxed mb-10">
+                The best way to reach me is through LinkedIn. My public work is on GitHub.
+              </p>
+              <div className="space-y-5">
+                {/* TODO: replace with real LinkedIn profile URL */}
                 <a
-                  href="https://linkedin.com"
+                  href="www.linkedin.com/in/tendai-d-512505257"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center text-text hover:text-primary transition-colors"
+                  className="flex items-center gap-3 font-mono text-sm text-ink"
                 >
-                  <Linkedin className="h-6 w-6 mr-4" />
-                  <span>LinkedIn</span>
+                  <Linkedin className="h-4 w-4 text-verdigris flex-shrink-0" />
+                  <span className="link-draw">www.linkedin.com/in/tendai-d-512505257</span>
                 </a>
-
                 <a
-                  href="https://github.com"
+                  href="https://github.com/10ndai"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center text-text hover:text-primary transition-colors"
+                  className="flex items-center gap-3 font-mono text-sm text-ink"
                 >
-                  <Github className="h-6 w-6 mr-4" />
-                  <span>GitHub</span>
-                </a>
-
-                <a
-                  href="mailto:tendai@example.com"
-                  className="flex items-center text-text hover:text-primary transition-colors"
-                >
-                  <Mail className="h-6 w-6 mr-4" />
-                  <span>tendai@example.com</span>
+                  <Github className="h-4 w-4 text-verdigris flex-shrink-0" />
+                  <span className="link-draw">github.com/10ndai</span>
                 </a>
               </div>
             </div>

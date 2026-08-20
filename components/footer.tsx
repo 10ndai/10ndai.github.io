@@ -1,10 +1,13 @@
 export default function Footer() {
   return (
-    <footer className="bg-dark text-white py-8">
-      <div className="container">
-        <div className="flex flex-col md:flex-row justify-between items-center">
-          <p>&copy; {new Date().getFullYear()} Tendai. All rights reserved.</p>
-          <p className="mt-2 md:mt-0">Big Data Analyst | Future Data Engineer</p>
+    <footer className="bg-paper border-t border-rule py-10">
+      <div className="max-w-5xl mx-auto px-6">
+        <div className="md:grid md:grid-cols-[5rem_1fr] md:gap-x-8">
+          <div />
+          <div className="flex flex-col md:flex-row md:justify-between gap-2">
+            <p className="font-mono text-xs text-verdigris">Tendai Dzuda</p>
+            <p className="font-mono text-xs text-rule">&copy; {new Date().getFullYear()}</p>
+          </div>
         </div>
       </div>
     </footer>
