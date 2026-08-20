@@ -34,7 +34,7 @@ const projects: Project[] = [
     description:
       "Tournament outcome model combining Dixon-Coles attack/defence ratings with Monte Carlo simulation to forecast match and bracket results.",
     stack: "Python · SciPy · Monte Carlo simulation",
-    repoUrl: "#https://github.com/10ndai/fifa-world-cup-forecast", // TODO: add real GitHub repository URL
+    repoUrl: "https://github.com/10ndai/fifa-world-cup-forecast", // TODO: add real GitHub repository URL
   },
   {
     fig: "fig. 04",
@@ -42,7 +42,7 @@ const projects: Project[] = [
     description:
       "Chest X-ray classifier for pneumonia detection, built in collaboration with Sawera using transfer learning on public clinical datasets.",
     stack: "Python · TensorFlow · CNN · transfer learning",
-    repoUrl: "#https://github.com/10ndai/pneumonia-detector.git", // TODO: add real GitHub repository URL
+    repoUrl: "https://github.com/10ndai/pneumonia-detector.git", // TODO: add real GitHub repository URL
   },
   {
     fig: "fig. 05",
@@ -58,7 +58,7 @@ const projects: Project[] = [
     description:
       "Point-of-sale and inventory tool for small retailers, built to work in low-connectivity environments common in informal Zimbabwean commerce.",
     stack: "TypeScript", // TODO: confirm full stack
-    repoUrl: "#https://github.com/10ndai/CounterStock", // TODO: add real GitHub repository URL
+    repoUrl: "https://github.com/10ndai/CounterStock", // TODO: add real GitHub repository URL
   },
 ]
 
