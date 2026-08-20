@@ -42,7 +42,7 @@ export default function Hero() {
                 </a>
                 {/* TODO: replace with real LinkedIn profile URL */}
                 <a
-                  href="https://linkedin.com/in/tendai-dzuda"
+                  href="https://www.linkedin.com/in/tendai-d-512505257/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="block link-draw text-verdigris hover:text-oxblood transition-colors"
