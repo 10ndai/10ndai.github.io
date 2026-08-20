@@ -1,73 +1,41 @@
 "use client"
 
-import { useEffect, useState } from "react"
-import Image from "next/image"
-import { Award, Clock, Code } from "lucide-react"
+import { useEffect, useRef, useState } from "react"
 
 export default function About() {
-  const [isVisible, setIsVisible] = useState(false)
+  const ref = useRef<HTMLElement>(null)
+  const [visible, setVisible] = useState(false)
 
   useEffect(() => {
+    const el = ref.current
+    if (!el) return
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setIsVisible(true)
+          setVisible(true)
           observer.disconnect()
         }
       },
       { threshold: 0.1 },
     )
-
-    const section = document.getElementById("about")
-    if (section) observer.observe(section)
-
-    return () => {
-      if (section) observer.unobserve(section)
-    }
+    observer.observe(el)
+    return () => observer.disconnect()
   }, [])
 
   return (
-    <section id="about" className="bg-white py-20">
-      <div className="container">
-        <h2 className="section-title">About Me</h2>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-          <div className={`relative ${isVisible ? "animate-fade-in" : "opacity-0"}`}>
-            <div className="rounded-lg overflow-hidden shadow-xl">
-              <Image
-                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/1690020800717.jpg-u1lUEW5Wr0fDhyELYi7oHsiCNl2UtQ.jpeg"
-                alt="Tendai"
-                width={500}
-                height={600}
-                className="w-full h-auto object-cover"
-              />
-            </div>
-          </div>
-
-          <div className={`space-y-6 ${isVisible ? "animate-fade-in animate-delay-200" : "opacity-0"}`}>
-            <p className="text-lg">
-              I&apos;m a data enthusiast with experience in big data analytics, SQL, and Python. Currently leveling up
-              in data engineering with tools like Apache Spark, Kafka, and Airflow.
-            </p>
-
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-4">
-              <div className="flex flex-col items-center p-4 rounded-lg bg-cream/30">
-                <Clock className="h-8 w-8 text-primary mb-2" />
-                <h3 className="text-xl font-semibold">1+ Years</h3>
-                <p className="text-sm text-center">Data Experience</p>
-              </div>
-
-              <div className="flex flex-col items-center p-4 rounded-lg bg-cream/30">
-                <Award className="h-8 w-8 text-primary mb-2" />
-                <h3 className="text-xl font-semibold">AWS & MS</h3>
-                <p className="text-sm text-center">Certified</p>
-              </div>
-
-              <div className="flex flex-col items-center p-4 rounded-lg bg-cream/30">
-                <Code className="h-8 w-8 text-primary mb-2" />
-                <h3 className="text-xl font-semibold">5+</h3>
-                <p className="text-sm text-center">Projects Completed</p>
-              </div>
+    <section ref={ref} id="about" className="bg-paper py-20 md:py-28 border-t border-rule">
+      <div className="max-w-5xl mx-auto px-6">
+        <div className={`reveal ${visible ? "visible" : ""}`}>
+          <div className="md:grid md:grid-cols-[5rem_1fr] md:gap-x-8 items-start">
+            <p className="font-mono text-xs text-verdigris mb-4 md:mb-0 md:pt-2">about</p>
+            <div className="max-w-2xl">
+              <p className="font-body text-base md:text-lg text-ink/80 leading-relaxed">
+                I&apos;m a data scientist based in Harare working at the intersection of applied machine learning,
+                public health research, and software that holds up in the real world. My work spans predictive
+                modelling, end-to-end MLOps pipelines, and tools built for the Zimbabwean context — from clinical
+                decision support to inventory management. I care about what it takes to make data systems actually
+                work, not just in benchmarks.
+              </p>
             </div>
           </div>
         </div>
