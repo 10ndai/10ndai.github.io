@@ -48,7 +48,7 @@ export default function Contact() {
                   className="flex items-center gap-3 font-mono text-sm text-ink"
                 >
                   <Linkedin className="h-4 w-4 text-verdigris flex-shrink-0" />
-                  <span className="link-draw">www.linkedin.com/in/tendai-d-512505257</span>
+                  <span className="link-draw">LinkedIn</span>
                 </a>
                 <a
                   href="https://github.com/10ndai"
