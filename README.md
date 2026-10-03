@@ -4,7 +4,7 @@ A modern, responsive portfolio website for a Big Data Analyst transitioning to D
 
 ## 🚀 Live Demo
 
-Visit the live site: [https://yourusername.github.io/tendai.github.io](https://yourusername.github.io/tendai.github.io)
+Visit the live site: [https://10ndai.github.io](https://10ndai.github.io)
 
 ## 🛠️ Built With
 
@@ -70,7 +70,7 @@ npm run build
 
 \`\`\`bash
 # Clone the repository
-git clone https://github.com/yourusername/tendai.github.io.git
+git clone https://github.com/10ndai/tendai.github.io.git
 
 # Navigate to the project directory
 cd tendai.github.io
@@ -114,6 +114,6 @@ Contributions, issues, and feature requests are welcome!
 
 ## 📞 Contact
 
-Tendai - [LinkedIn](https://linkedin.com) - tendai@example.com
+Tendai - [LinkedIn](www.linkedin.com/in/tendai-d-512505257) 
 
-Project Link: [https://github.com/yourusername/tendai.github.io](https://github.com/yourusername/tendai.github.io)
+Project Link: [https://github.com/10ndai/tendai.github.io](https://github.com/10ndai/tendai.github.io)
