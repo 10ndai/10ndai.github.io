@@ -21,44 +21,43 @@ const projects: Project[] = [
     repoUrl: "#", // TODO: add real GitHub repository URL
   },*/
   {
-    fig: "fig. 02",
+    fig: "fig. 01",
     title: "End-to-End MLOps Pipeline",
     description:
-      "Production-grade pipeline on AWS — model training, deployment, and monitoring — built over four weeks on the UCI hospital readmission dataset.",
-    stack: "Python · AWS · MLflow · Airflow · Docker",
-    repoUrl: "#", // TODO: add real GitHub repository URL
+      "End-to-end pipeline predicting 30-day readmission on the UCI diabetes dataset: ingestion, cleaning, patient-grouped splits to prevent leakage, MLflow-tracked training and drift monitoring. SageMaker deployment code is written and dry-run tested; the live AWS run is pending",
+    repoUrl: "https://github.com/10ndai/Hospital-Readmission", 
+  },
+  {
+    fig: "fig. 02",
+    title: "TheraPulse",
+    description:
+      "Digital records platform that replaces paper therapy files. Worksheets, assessments and session notes become structured data, so client progress on standard screening measures can be tracked and charted over time. ",
+    stack: "React Native · TypeScript",
+    repoUrl: "https://github.com/10ndai/TheraPulse", 
   },
   {
     fig: "fig. 03",
     title: "FIFA World Cup Prediction Model",
     description:
-      "Tournament outcome model combining Dixon-Coles attack/defence ratings with Monte Carlo simulation to forecast match and bracket results.",
+      "Forecasts the 48-team 2026 World Cup by combining Dixon-Coles attack/defence ratings with Monte Carlo bracket simulation. Judged on calibration, not just accuracy, and benchmarked against an Elo baseline and bookmaker odds.",
     stack: "Python · SciPy · Monte Carlo simulation",
-    repoUrl: "https://github.com/10ndai/fifa-world-cup-forecast", // TODO: add real GitHub repository URL
+    repoUrl: "https://github.com/10ndai/fifa-world-cup-forecast", 
   },
   {
     fig: "fig. 04",
     title: "Pneumonia Detector",
     description:
-      "Chest X-ray classifier for pneumonia detection, built in collaboration with Sawera using transfer learning on public clinical datasets.",
+      "Chest X-ray classifier co-built with Sawera, using ResNet transfer learning, patient-disjoint validation and Grad-CAM heatmaps that show where the model is looking",
     stack: "Python · TensorFlow · CNN · transfer learning",
-    repoUrl: "https://github.com/10ndai/pneumonia-detector.git", // TODO: add real GitHub repository URL
+    repoUrl: "https://github.com/10ndai/pneumonia-detector.git", 
   },
   {
     fig: "fig. 05",
-    title: "TheraPulse",
+    title: "CounterStock",
     description:
-      "Concept Digital Platform for Mental Health Clinical Practice ",
-    stack: "React Native · TypeScript",
-    repoUrl: "#", // TODO: add real GitHub repository URL
-  },
-  {
-    fig: "fig. 06",
-    title: "CountaStock",
-    description:
-      "Point-of-sale and inventory tool for small retailers, built to work in low-connectivity environments common in informal Zimbabwean commerce.",
-    stack: "TypeScript", // TODO: confirm full stack
-    repoUrl: "https://github.com/10ndai/CounterStock", // TODO: add real GitHub repository URL
+      "Point-of-sale and inventory system for small retailers, with dual-currency (USD/ZWG) pricing and an offline mode for low-connectivity shops common in Zimbabwean retail.",
+    stack: "TypeScript", 
+    repoUrl: "https://github.com/10ndai/CounterStock", 
   },
 ]
 
