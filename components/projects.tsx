@@ -112,8 +112,10 @@ export default function Projects() {
                   <p className="font-mono text-xs text-verdigris mb-5">stack — {project.stack}</p>
                   <a
                     href={project.repoUrl}
-                    className="inline-flex items-center gap-1.5 font-mono text-xs text-oxblood group"
-                  >
+                    target="_blank"
+                     rel="noopener noreferrer"
+                       className="inline-flex items-center gap-1.5 font-mono text-xs text-oxblood group"
+                      >
                     <Github className="h-3.5 w-3.5" />
                     <span className="link-draw">view code →</span>
                   </a>
