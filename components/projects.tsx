@@ -12,20 +12,13 @@ interface Project {
 }
 
 const projects: Project[] = [
-  /*{
-    fig: "fig. 01",
-    title: "IndabaX Zimbabwe Hackathon",
-    description:
-      "Loan default prediction using XGBoost and LightGBM, surfaced through a Next.js dashboard designed for loan officers; entered for IndabaX Zimbabwe's innovation prize.",
-    stack: "Python · XGBoost · LightGBM · Next.js · TypeScript",
-    repoUrl: "#", // TODO: add real GitHub repository URL
-  },*/
+  
   {
     fig: "fig. 01",
     title: "Hospital Re-Admission MLOps Pipeline",
     description:
       "End-to-end pipeline predicting 30-day readmission on the UCI diabetes dataset: ingestion, cleaning, patient-grouped splits to prevent leakage, MLflow-tracked training and drift monitoring. SageMaker deployment code is written and dry-run tested; the live AWS run is pending.",
-    stack: "Python · Scikit-learn · XGBoost · MLflow · AWS Sagemaker ",
+    stack: "Python · Scikit-learn · XGBoost · MLflow · AWS SageMaker ",
     repoUrl: "https://github.com/10ndai/Hospital-Readmission", 
   },
   {
@@ -33,7 +26,7 @@ const projects: Project[] = [
     title: "TheraPulse",
     description:
       "Digital records platform that replaces paper therapy files. Worksheets, assessments and session notes become structured data, so client progress on standard screening measures can be tracked and charted over time. ",
-    stack: "Next.js · TypeScript · NestJS · PostgresSQL · Prisma",
+    stack: "Next.js · TypeScript · NestJS · PostgreSQL · Prisma",
     repoUrl: "https://github.com/10ndai/TheraPulse", 
   },
   {
