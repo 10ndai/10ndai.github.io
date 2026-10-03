@@ -22,9 +22,10 @@ const projects: Project[] = [
   },*/
   {
     fig: "fig. 01",
-    title: "End-to-End MLOps Pipeline",
+    title: "Hospital Re-Admission MLOps Pipeline",
     description:
-      "End-to-end pipeline predicting 30-day readmission on the UCI diabetes dataset: ingestion, cleaning, patient-grouped splits to prevent leakage, MLflow-tracked training and drift monitoring. SageMaker deployment code is written and dry-run tested; the live AWS run is pending",
+      "End-to-end pipeline predicting 30-day readmission on the UCI diabetes dataset: ingestion, cleaning, patient-grouped splits to prevent leakage, MLflow-tracked training and drift monitoring. SageMaker deployment code is written and dry-run tested; the live AWS run is pending.",
+    stack: "Python · Scikit-learn · XGBoost · MLflow · AWS Sagemaker ",
     repoUrl: "https://github.com/10ndai/Hospital-Readmission", 
   },
   {
@@ -32,7 +33,7 @@ const projects: Project[] = [
     title: "TheraPulse",
     description:
       "Digital records platform that replaces paper therapy files. Worksheets, assessments and session notes become structured data, so client progress on standard screening measures can be tracked and charted over time. ",
-    stack: "React Native · TypeScript",
+    stack: "Next.js · TypeScript · NestJS · PostgresSQL · Prisma",
     repoUrl: "https://github.com/10ndai/TheraPulse", 
   },
   {
@@ -40,7 +41,7 @@ const projects: Project[] = [
     title: "FIFA World Cup Prediction Model",
     description:
       "Forecasts the 48-team 2026 World Cup by combining Dixon-Coles attack/defence ratings with Monte Carlo bracket simulation. Judged on calibration, not just accuracy, and benchmarked against an Elo baseline and bookmaker odds.",
-    stack: "Python · SciPy · Monte Carlo simulation",
+    stack: "Python · SciPy · pandas · Monte Carlo simulation",
     repoUrl: "https://github.com/10ndai/fifa-world-cup-forecast", 
   },
   {
@@ -48,15 +49,15 @@ const projects: Project[] = [
     title: "Pneumonia Detector",
     description:
       "Chest X-ray classifier co-built with Sawera, using ResNet transfer learning, patient-disjoint validation and Grad-CAM heatmaps that show where the model is looking",
-    stack: "Python · TensorFlow · CNN · transfer learning",
-    repoUrl: "https://github.com/10ndai/pneumonia-detector.git", 
+    stack: "Python · PyTorch · ResNet · Grad-CAM",
+    repoUrl: "https://github.com/10ndai/pneumonia-detector", 
   },
   {
     fig: "fig. 05",
     title: "CounterStock",
     description:
       "Point-of-sale and inventory system for small retailers, with dual-currency (USD/ZWG) pricing and an offline mode for low-connectivity shops common in Zimbabwean retail.",
-    stack: "TypeScript", 
+    stack: "TypeScript · Next.js · Prisma · Zustand ", 
     repoUrl: "https://github.com/10ndai/CounterStock", 
   },
 ]
